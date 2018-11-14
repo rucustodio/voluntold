@@ -7,10 +7,10 @@
     "fs-extra": "^6.0.1",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.48.0",
-    "react-test-renderer": "16.5.0",
-    "replace-in-file": "^3.4.0",
     "react": "16.5.0",
-    "react-native": "0.57.1"
+    "react-native": "0.57.1",
+    "react-test-renderer": "16.5.0",
+    "replace-in-file": "^3.4.0"
   },
   "scripts": {
     "android": "react-native run-android",
@@ -25,6 +25,11 @@
   },
   "dependencies": {
     "react-native-firebase": "^5.0.0",
-    "react-native-google-signin": "https://github.com/react-native-community/react-native-google-signin.git"
+    "react-native-google-signin": "https://github.com/react-native-community/react-native-google-signin.git",
+    "react-navigation": "^2.18.0",
+    "react-navigation-redux-helpers": "^2.0.6",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6"
   }
 }
