@@ -1,8 +1,8 @@
-import Navigator from './Navigator';
+import RootNavigator from './RootNavigator';
 import React from 'react';
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
-import navigation from './reducer';
+import authReducer from './app/reducers/authReducer';
 
 import {
   reduxifyNavigator,
@@ -11,15 +11,18 @@ import {
 } from 'react-navigation-redux-helpers';
 
 import { connect } from 'react-redux'
+import eventsReducer from './app/reducers/eventsReducer';
 
 const middleware = createReactNavigationReduxMiddleware(
   "root",
   state => state.nav,
 );
 
-const navReducer = createNavigationReducer(Navigator);
+const navReducer = createNavigationReducer(RootNavigator);
 const appReducer = combineReducers({
   nav: navReducer,
+  app: authReducer,
+  events: eventsReducer,
 });
 
 const store = createStore(
@@ -27,7 +30,7 @@ const store = createStore(
   applyMiddleware(middleware),
 );
 
-const AppNav = reduxifyNavigator(Navigator, 'root');
+const AppNav = reduxifyNavigator(RootNavigator, 'root');
 const mapStateToProps = state => ({
   state: state.nav,
 });

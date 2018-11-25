@@ -5,23 +5,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#F5FCFF',
+    paddingTop: 50,
   },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  logo: {
-    height: 140,
-    marginBottom: 16,
-    marginTop: 100,
-    padding: 10,
-    width: 140,
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
   },
 });
 
