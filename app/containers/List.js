@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StatusBar, Image } from 'react-native';
 import styles from '../styles/List';
 import { connect } from 'react-redux'
 import { getEvents } from '../actions/eventsActions'
@@ -24,16 +24,40 @@ class ListScreen extends React.Component {
     return (
       <View key={`event-${i}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' }}>
         <Text>.3 mi</Text>
-        <Text>{event.title}</Text>
+        <Text onPress={ () => this.handleEventPress(event)}>{event.title}</Text>
         <Text>{event.total}/{event.needed}</Text>
       </View>
     )
   }
 
+  handleCreateClick = () => {
+    const { navigation } = this.props;
+
+    navigation.navigate('Create', {
+      route: 'List'
+    });
+  }
+
+  handleEventPress = (event) => {
+    const { navigation } = this.props;
+
+    navigation.navigate('Event', {
+      event,
+      route: 'List'
+    });
+  }
+
   render() {
-    console.log(this.props);
     return (
       <View style={styles.wrapper}>
+        <StatusBar
+          backgroundColor="blue"
+          barStyle="light-content"
+        />
+        <View style={{height: 60, backgroundColor: '#081b33', top: 0, position: 'absolute', left: 0, right: 0, display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', padding: 10}}>
+          <Image source={require('../../assets/rotary.png')} style={{height: 20, width: 20}}/>
+          <Text onPress={this.handleCreateClick} style={{color: 'white'}}>Create</Text>
+        </View>
         <Text style={{textAlign: 'center'}}>Event List</Text>
         <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row' }}>
           <Text>Distance</Text>

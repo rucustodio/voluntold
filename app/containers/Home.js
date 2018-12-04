@@ -1,13 +1,24 @@
 import React from 'react';
 import { NavigationActions } from 'react-navigation';
 import { GoogleSignin, GoogleSigninButton } from 'react-native-google-signin';
-import { Image, Text, View } from 'react-native';
+import { Image, Text, View, StatusBar } from 'react-native';
 import firebase from 'react-native-firebase';
 import styles from '../styles/Home';
 import { connect } from 'react-redux'
 import {login} from '../actions/authActions';
 
 class HomeScreen extends React.Component {
+
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  };
 
   async componentDidMount() {
     GoogleSignin.configure();
@@ -37,6 +48,10 @@ class HomeScreen extends React.Component {
 
     return (
       <View style={styles.wrapper}>
+        <StatusBar
+            backgroundColor="blue"
+            barStyle="dark-content"
+          />
         <View style={styles.container}>
           <Image source={require(logoSrc)} style={[styles.logo]}/>
           <Text style={styles.welcome}>

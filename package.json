@@ -26,6 +26,7 @@
   "dependencies": {
     "react-native-firebase": "^5.0.0",
     "react-native-google-signin": "https://github.com/react-native-community/react-native-google-signin.git",
+    "react-native-maps": "^0.22.1",
     "react-navigation": "^2.18.0",
     "react-navigation-redux-helpers": "^2.0.6",
     "react-redux": "^5.0.7",

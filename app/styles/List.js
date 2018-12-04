@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#F5FCFF',
-    paddingTop: 50,
+    paddingTop: 70,
   },
   container: {
     flex: 1,
